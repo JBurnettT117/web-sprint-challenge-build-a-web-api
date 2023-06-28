@@ -18,7 +18,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
-const server = express()
+const server = require("./api/server")
 
 const PORT = process.env.PORT || 9000
 
@@ -28,5 +28,7 @@ server.use(cors())
 //put the server.get etc. here
 
 server.listen(PORT, () => {
-    console.log(`listening on ${PORT}`)//this has not been tested. check for testing and then start on part 
+    console.log(`listening on ${PORT}`)
 })
+
+
