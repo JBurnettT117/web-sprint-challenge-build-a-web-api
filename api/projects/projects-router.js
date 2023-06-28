@@ -27,4 +27,8 @@ router.get('/:id', validateUserId, (req, res) => {
         })
 });
 
+router.post('/', (req, res, next) => {
+//you got this, make more routes
+})
+
 module.exports = router;
