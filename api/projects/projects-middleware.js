@@ -38,7 +38,7 @@ function validatePost(req, res, next) {
 
 function completedCheck(req, res, next) {
     const completed = req.body.completed;
-    if(!completed||!completed.trim()) {
+    if(completed === undefined) {
         res.status(400).json({
             message: "missing completed"
         })

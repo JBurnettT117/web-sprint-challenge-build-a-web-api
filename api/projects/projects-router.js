@@ -48,10 +48,30 @@ router.put('/:id', validateProjectId, validatePost, completedCheck, (req, res, n
     })
         .then(updatedProject => {
             console.log(updatedProject)
-            console.log(req.completed)
-            res.status(201).json(updatedProject)//why wont completed change? why doesnt the updated project get returned and count?
+            res.status(201).json(updatedProject)
         })
         .catch(next)
 })
+
+router.delete('/:id', validateProjectId, async (req, res, next) => {
+    try {
+        await Projects.remove(req.params.id)
+        res.json()
+    } catch (err) {
+        next(err)
+    }
+})
+
+router.get('/:id/actions', validateProjectId, (req, res) => {
+    Projects.getProjectActions(req.params.id)
+        .then(project => {
+            res.json(project)
+        })
+        .catch(err => {
+            res.status(404).json({
+                err: err
+            })
+        })
+});
 
 module.exports = router;
