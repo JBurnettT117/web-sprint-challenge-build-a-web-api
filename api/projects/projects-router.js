@@ -29,7 +29,6 @@ router.get('/:id', validateProjectId, (req, res) => {
 });
 //if its not working dont forget to run resetdb
 router.post('/', validatePost, (req, res, next) => {
-//you got this, make more routes || I HAVE NO IDEA WHY THIS ISNT WORKING COME BACK WITH HELP
     Projects.insert({ completed: req.completed,  
         description: req.description, 
         name: req.name,
