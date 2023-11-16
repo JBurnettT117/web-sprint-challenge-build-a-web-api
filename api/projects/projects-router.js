@@ -1,4 +1,3 @@
-// Write your "projects" router here!
 const express = require('express');
 const router = express.Router();
 const Projects = require('./projects-model')
@@ -27,7 +26,6 @@ router.get('/:id', validateProjectId, (req, res) => {
             })
         })
 });
-//if its not working dont forget to run resetdb
 router.post('/', validatePost, (req, res, next) => {
     Projects.insert({ completed: req.completed,  
         description: req.description, 
